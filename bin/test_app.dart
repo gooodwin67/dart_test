@@ -13,7 +13,10 @@ void main() async {
 
   //showTimer(3);
   //showController(5);
-
+  //print(generator());
+  /*generatorAsync().listen((el) {
+    print(el);
+  });*/
   print('end');
 }
 
@@ -62,6 +65,7 @@ printUsers() {
 }
 
 showTimer(sec) async {
+  //Stream
   Stream<int> stream;
   StreamSubscription<int> subscription;
 
@@ -89,4 +93,14 @@ showController(max) {
   subscriber = controller.stream.listen((event) {
     print(event);
   });
+}
+
+Iterable generator() sync* {
+  yield 1;
+  yield 2;
+}
+
+Stream generatorAsync() async* {
+  yield 1;
+  yield 2;
 }
